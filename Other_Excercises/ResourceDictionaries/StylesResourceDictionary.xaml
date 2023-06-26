@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    
+    
+    <Style x:Key="SectionStyle" TargetType="Button">
+        <Setter Property="Height" Value="300"></Setter>
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Button.Height)" To="400" Duration="0:0:0.4"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Button.Height)" To="300" Duration="0:0:0.1"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TitleStyle" TargetType="Slider">
+        <Setter Property="Value" Value="0"></Setter>
+        
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Slider.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Slider.Value)" To="-310" Duration="0:0:0.4"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Slider.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Slider.Value)" To="0" Duration="0:0:0.1"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextInfoStyle" TargetType="TextBlock">
+        <Setter Property="Opacity" Value="0"></Setter>
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="TextBlock.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(TextBlock.Opacity)" To="1" Duration="0:0:0.4"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="TextBlock.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(TextBlock.Opacity)" To="0" Duration="0:0:0.1"></DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="SelectionTemplate">
+        <Grid>
+            <Viewbox Width="900" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Image Source="../Images/Section1.jpg" Stretch="Fill" Opacity="0.8"></Image>
+            </Viewbox>
+
+            <TextBlock x:Name="TextOmeOme" Text="Section" FontSize="50" Foreground="White"
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform Y="{Binding ElementName=TitleSlider, Path=Value}"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <Viewbox Stretch="Fill">
+                <Slider x:Name="TitleSlider" Opacity="0"
+                        Maximum="0" Minimum="-310" 
+                        Style="{StaticResource TitleStyle}"></Slider>
+            </Viewbox>
+            
+            <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+                       FontSize="30" Foreground="White" TextWrapping="Wrap"
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       Margin="20 0 20 50" Style="{StaticResource TextInfoStyle}">
+            </TextBlock>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\LITG\FSX Project\WPF\Unity_Excersices\Other_Excercises\App.xaml
-11151548125
+3-1030402976
 
-61434861427
+7-1455014757
 13-1505183044
-MainWindow.xaml;
+MainWindow.xaml;ResourceDictionaries\StylesResourceDictionary.xaml;UserControls\SectionUserControl.xaml;
 
-True
+False
 

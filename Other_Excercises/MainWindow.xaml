@@ -4,9 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Other_Excercises"
+        xmlns:section="clr-namespace:Other_Excercises.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Width="800" Height="450">
+
+    <Window.Resources>
+        <section:SectionUserControl x:Key="SectionUserControl"></section:SectionUserControl>
+    </Window.Resources>
+
+    <Grid Background="LightSeaGreen">
+        <!--<MediaElement Source="https://youtu.be/BbgseVVbvmE"/>-->
         
+        <Viewbox>
+            <Grid Width="1920" Height="1080">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="2">
+                    <ScrollViewer Height="500" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <section:SectionUserControl Margin="50 30 50 30"/>
+                            <section:SectionUserControl Margin="50 30 50 30"/>
+                            <section:SectionUserControl Margin="50 30 50 30"/>
+                        </StackPanel>                                        
+                    </ScrollViewer>
+                </Viewbox>
+            </Grid>
+        </Viewbox>
     </Grid>
 </Window>
